@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 
-const ExpensesSummary = ({periodName}) => {
+const ExpensesSummary = ({periodName, expenses}) => {
     const expensesSum = expenses.reduce((sum, expense)=>{
         return sum + expense.amount
     }, 0);
