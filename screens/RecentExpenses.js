@@ -4,7 +4,7 @@ import ExpensesOutput from '../components/ExpensesOutput/ExpensesOutput';
 
 const RecentExpenses = () => {
   return (
-      <ExpensesOutput expensePeriod="Last 7 days"/>
+      <ExpensesOutput expensesPeriod="Last 7 days"/>
   );
 };
 

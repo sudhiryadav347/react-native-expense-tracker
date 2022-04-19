@@ -13,4 +13,6 @@ const ExpensesList = ({expenses}) => {
 
 export default ExpensesList
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  
+})
