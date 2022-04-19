@@ -2,6 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useLayoutEffect } from 'react';
 import IconButton from './../components/UI/IconButton';
 import { GlobalStyles } from '../constants/styles';
+import Button from '../components/UI/Button';
 
 const ManageExpenses = ({ route, navigation }) => {
   const editedExpenseId = route.params?.expenseId;
@@ -14,9 +15,19 @@ const ManageExpenses = ({ route, navigation }) => {
   }, [navigation, isEditing]);
 
   const deleteExpenseHandler = () => {};
+  const cancelHandler = () => {};
+  const confirmHandler = () => {};
 
   return (
     <View style={styles.container}>
+      <View style={styles.buttons}>
+        <Button style={styles.button} mode="flat" onPress={cancelHandler}>
+          Cancel
+        </Button>
+        <Button style={styles.button} onPress={confirmHandler}>
+          {isEditing ? 'Update' : 'Add'}
+        </Button>
+      </View>
       {isEditing && (
         <View style={styles.deleteContainer}>
           <IconButton
@@ -36,8 +47,18 @@ export default ManageExpenses;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 2,
+    padding: 9,
     backgroundColor: GlobalStyles.colors.primary800,
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  button: {
+    marginHorizontal: 8,
+    minWidth: 130,
   },
   deleteContainer: {
     marginTop: 16,
@@ -45,6 +66,5 @@ const styles = StyleSheet.create({
     borderTopWidth: 2,
     borderTopColor: GlobalStyles.colors.primary200,
     alignItems: 'center',
-    marginHorizontal: 16,
   },
 });
